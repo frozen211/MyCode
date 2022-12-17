@@ -1,0 +1,20 @@
+Dell在E盘，Github_file里。
+Yoga在D盘，mygit里。
+
+到master分支下右键git bash，之后在git bash里输入
+Git clone https://github.com/frozen211/MyRepo.git
+就把那个repo下载到本地了，可以在本地工作。
+通过SSH的方式，可以和我网站上的repo同步。
+
+从本地同步到云端
+Git status可以看当前有什么要改变的
+Git add .
+git add 我要加的文件
+将文件放入暂存区
+Git commit -m “我要输入的message”
+添加message
+然后才能push
+git push
+
+从云端同步到本地
+git pull
