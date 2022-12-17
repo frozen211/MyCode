@@ -1,3 +1,14 @@
-https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+1. use "git init" to make a local folder into a git repo.
 
+2. use the following command to connect with my github repo:
+git remote add origin  https://github.com/your_username/myproject.git
+
+3. use "git add", "git commit -m "my message" " and "git push origin master" to update my files to the master branch.
+
+4. use the generated token as the password (instead of the account password).
+https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 use this link to generate new token to act as the password.
+
+5. use "git clone" to download.
+
+6. use "git status" to check if there's anything needed to push.
