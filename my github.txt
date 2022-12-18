@@ -12,3 +12,5 @@ use this link to generate new token to act as the password.
 5. use "git clone" to download.
 
 6. use "git status" to check if there's anything needed to push.
+
+7. use "git branch xxx" to create new branch and use "git checkout xxx" to switch between branches.
