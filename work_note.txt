@@ -1,0 +1,25 @@
+The dataset used for the ICASSP paper has some problems.
+Some of the samples are the same (duplicates).
+I removed those duplicates and losed ~15 samples.
+Shouldn't have problem on the ICASSP results.
+
+For each sample I counted the number of dots in the transcript, then divide them with the corresponding word-count.
+CU-D:
+0.04843509926053584 0.039409036325529896
+CU-S:
+0.04137165905220006 0.03545278297514985
+
+They are significantly different (p = 0.0028, small effect) in 2 sample t-test.
+Pause info should be a potential feature to classify between CU-S and CU-D.
+
+Take the pause feature into account and train an xgboost to classify between CU-S and CU-D.
+Seems to be a slight improvement.
+
+transcript + BERT = about 65% acc
+features + xgboost = about 60% acc
+transcript + BERT + bottleneck = improvement
+pause encoded transcript + BERT = ?
+pause encoded transcript + BERT + bottleneck = ?
+For each fold, do majority vote? (run n times)
+
+need to look for more features that can separate AD and non-AD.
