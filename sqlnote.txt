@@ -8,3 +8,6 @@ I have 2 users: root and lingfeng
 
 3. Create a db following this link:
 https://www.mysqltutorial.org/mysql-create-database/
+
+4. If I forget my password, read this link:
+https://www.techrepublic.com/article/how-to-set-change-and-recover-a-mysql-root-password/
