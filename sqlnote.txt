@@ -1,0 +1,10 @@
+1. Installed mysql using this link:
+https://hevodata.com/learn/installing-mysql-on-ubuntu-20-04/
+
+2. To log in, use this command:
+sudo mysql -u root -p
+
+I have 2 users: root and lingfeng
+
+3. Create a db following this link:
+https://www.mysqltutorial.org/mysql-create-database/
