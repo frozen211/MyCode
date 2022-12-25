@@ -2,7 +2,7 @@
 https://hevodata.com/learn/installing-mysql-on-ubuntu-20-04/
 
 2. To log in, use this command:
-sudo mysql -u root -p
+# sudo mysql -u root -p
 
 I have 2 users: root and lingfeng
 
@@ -11,3 +11,89 @@ https://www.mysqltutorial.org/mysql-create-database/
 
 4. If I forget my password, read this link:
 https://www.techrepublic.com/article/how-to-set-change-and-recover-a-mysql-root-password/
+--------------------------------------------------
+Some basic commands:
+
+# SHOW DATABASES;
+show current databases.
+
+# USE XXXXX;
+open XXXXX database.
+
+# CREATE TABLE XXX ();
+Create a table XXX. Specify each column in the (). A small example:
+create table shoes (
+    -> Id  char(10)  primary key,
+    -> color  char(10)  not null,
+    -> price  decimal(8,2)  not null,
+    -> dsc  Varchar(250)  null);
+
+# CREATE TEMPORARY TABLE XX AS (SELECT * FROM shoes)
+Create a temporary table that contain exactly the same thing as shoes. The temporary table will be deleted once the session ends (exit).
+
+# SHOW TABLES;
+show the name of all tables in the db.
+
+# SELECT DATA_TYPE from INFORMATION_SCHEMA.COLUMNS where
+table_schema = ’yourDatabaseName’ and table_name = ’yourTableName’.
+show the data type of each column of a table.
+
+# INSERT INTO XXX () VALUES ();
+Add a row into a table XXX. Example:
+insert into shoes (
+    -> Id,
+    -> color,
+    -> price,
+    -> dsc)
+    -> values (
+    -> '12345678',
+    -> 'black',
+    -> '123.45',
+    -> null);
+
+# ALTER TABLE table_name
+ADD [COLUMN] column_name column_definition [FIRST|AFTER existing_column];
+Add a column into the table.
+
+# UPDATE XXX SET column1 = value1, column2 = value2, WHERE condition;
+Use UPDATE to change the values in the table.
+
+# SELECT XXX FROM YYY;
+Select some column(s) from a table YYY.
+If you select * from table1, then you will print everthing in table1.
+
+# SELECT XXX FROM YYY LIMIT N;
+Use LIMIT to limit the number of rows you pick from the table.
+
+# SELECT XXX FROM YYY WHERE ZZZ;
+Use WHERE to set conditions. Apart from common ones like "=", "<", ">", "<>"(or "!="),..., there are also 'BETWEEN AND' and 'IS NULL'.
+The 'BETWEEN AND' operator is inclusive, the start value and end value are all included.
+
+If you want to specify a few values, use 'IN'. For example: 
+# select * from shoes where Id IN (9, 10, 11);
+
+NOT, OR and AND can also be used to connect several conditions. However, it is more recommended to use IN instead of OR, because OR may neglect some conditions following it. If you have to use OR, put them into a ().
+
+# SELECT XXX FROM YYY WHERE ZZ LIKE PPPP;
+Use like and wildcards to search for substrings. Basically we can use % and underscore (_). Wildcards can only work on string so remember to add '' when calling them. Example:
+# select * from shoes where color like '%n%';
+
+# SELECT XXX FROM YYY ORDER BY [DESC/ASC] ZZZ;
+select something and print them in a certain order according to a certain column. You can also name a few columns for the ordering.
+
+# SELECT price - 50 AS accounted_price FROM shoes;
+select a column, subtract 50 and name it as accounted_price. MySQL can perform +, -, *, / normally. There are also some commonly used functions:
+
+# AVG(), COUNT(), MIN(), MAX(), SUM().
+AVG and COUNT ignore null rows. If you're counting multiple rows (COUNT(*)), only rows in which all columns are "null" will be ignored.
+
+DISTINCT is used to specify that no duplicate is allowed. 
+COUNT(DISTINCT(XXX)) will count the number of distinct values in XXX column.
+
+# SELECT color,count(color) AS c FROM shoes GROUP BY color;
+group the rows according to the color column and count the number of items in each group.
+
+# SELECT color,count(color) FROM shoes GROUP BY color HAVING count(color)>1;
+HAVING is similar to WHERE but it applies on groups.
+
+
