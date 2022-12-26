@@ -31,12 +31,21 @@ create table shoes (
 # CREATE TEMPORARY TABLE XX AS (SELECT * FROM shoes)
 Create a temporary table that contain exactly the same thing as shoes. The temporary table will be deleted once the session ends (exit).
 
+# CREATE VIEW XXX AS ...
+similar to temporary table, but more convenient. Once a view is created, we can view it using:
+# select * from my_view;
+If we don't want it any more, we can delete it by:
+# DROP VIEW my_view;
+
 # SHOW TABLES;
 show the name of all tables in the db.
 
 # SELECT DATA_TYPE from INFORMATION_SCHEMA.COLUMNS where
 table_schema = ’yourDatabaseName’ and table_name = ’yourTableName’.
 show the data type of each column of a table.
+
+# DESC XXX;
+display the basic information of the table XXX, including field, data type, null, key, default, extra.
 
 # INSERT INTO XXX () VALUES ();
 Add a row into a table XXX. Example:
@@ -80,6 +89,9 @@ If you want to specify a few values, use 'IN'. For example:
 
 NOT, OR and AND can also be used to connect several conditions. However, it is more recommended to use IN instead of OR, because OR may neglect some conditions following it. If you have to use OR, put them into a ().
 
+SELECT * FROM XXX WHERE ISNULL(YYY) = 0;
+ISNULL will return 1 or 0 depending on the field is null or not.
+
 # SELECT XXX FROM YYY WHERE ZZ LIKE PPPP;
 Use like and wildcards to search for substrings. Basically we can use % and underscore (_). Wildcards can only work on string so remember to add '' when calling them. Example:
 # select * from shoes where color like '%n%';
@@ -113,7 +125,31 @@ UNION
 SELECT column_name(s) FROM table2; 
 stack the results of 2 SELECT together. The results of 2 SELECT must have the same column number, the same data type and the same ordering.
 
+----------------------------------------------------------
+# SELECT CONCAT(color, ' ', dsc) FROM shoes3;
+concatenate different columns of strings. If any of the columns contain NULL, the corresponding row will be NULL.
 
+# SELECT CONCAT_WS('',color, ' ', dsc) FROM shoes3;
+concatenate with separation. The first input in the () is the separation symbol, here I use ''. CONCAT_WS can work as expected even if any of the columns contain NULL.
 
+# SELECT TRIM(LEADING/TRAILING '\n' FROM field_name) FROM table_name;
+TRIM can remove the leading or trailing (or both if not specified) symbols from a field. It cannot work on the middle of the string.
+
+If you want to modify the string in the middle, use REPLACE:
+# REPLACE(str,old_string,new_string);
+# update shoes3
+    -> set
+    -> dsc = replace(dsc,' ','_');
+
+# SELECT SUBSTR(color,1,3) FROM shoes3;
+extract a substring. The first is the field name, the second is the starting position (SQL starts from 1), the third is the length of the substring.
+
+# SELECT Id,
+    -> CASE color
+    -> WHEN 'black' THEN 'one'
+    -> ELSE 'zero'
+    -> END type
+    -> FROM shoes2;
+A MySQL style if-else clause. Look at the color column, if it's 'black', set the type to be 'one', else set to be 'zero'.
 
 
