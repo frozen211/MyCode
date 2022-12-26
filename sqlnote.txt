@@ -58,6 +58,12 @@ Add a column into the table.
 # UPDATE XXX SET column1 = value1, column2 = value2, WHERE condition;
 Use UPDATE to change the values in the table.
 
+# ALTER TABLE XXX DROP COLUMN YYY;
+delete a column YYY from a table XXX.
+
+# DELETE FROM XXX WHERE YYY;
+delete a row from the table XXX.
+-----------------------------------------------------
 # SELECT XXX FROM YYY;
 Select some column(s) from a table YYY.
 If you select * from table1, then you will print everthing in table1.
@@ -95,5 +101,19 @@ group the rows according to the color column and count the number of items in ea
 
 # SELECT color,count(color) FROM shoes GROUP BY color HAVING count(color)>1;
 HAVING is similar to WHERE but it applies on groups.
+
+---------------------------------------------------------
+# SELECT shoes.Id, price, Orders, color, dsc 
+    -> FROM shoes INNER JOIN shoes2
+    -> ON shoes.Id = shoes2.Id;
+INNER JOIN ... ON ... will help to merge 2 tables. It only cares about the rows that match. Unmatched rows will not appear. If you want them to appear, use LEFT JOIN or RIGHT JOIN.
+
+# SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2; 
+stack the results of 2 SELECT together. The results of 2 SELECT must have the same column number, the same data type and the same ordering.
+
+
+
 
 
