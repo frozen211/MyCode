@@ -1,2 +1,0 @@
-1. Sliding window is a good technique when dealing with array/list problems.
-2. When cannot solve the problem from the left, try solving it from the right.
