@@ -1,5 +1,6 @@
 # 208. Implement Trie (Prefix Tree)
 # This is also an important data structure for string related Leetcode questions
+# because it can effectively search for strings with a specific prefix
 
 # Trie basically trade space for time, so it has a realtively high space complexity
 # O(S), S is the total number of characters in all the strings that are inserted into the trie.
