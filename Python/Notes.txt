@@ -1,3 +1,8 @@
 Trie.py contains an implementation of the prefix tree. It should be useful.
 
 Rabin_Karp.py contains the implementation of Rabin Karp string search algorithm. It is good at searching a specific pattern in the string.
+
+Another string search algorithm with a runtime of O(m+n) is KMP algorithm.
+https://zhuanlan.zhihu.com/p/41047378
+
+StringProcess.py contains a code block to count the number of chars in the string.

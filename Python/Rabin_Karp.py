@@ -67,7 +67,7 @@ def search(pat, txt, q):
 
 ## main
 if __name__ =="__main__":
-    txt = "AABAACAADAABAABA"
-    pat = "AABA"
+    txt = "abab"
+    pat = "ab"
     search(pat,txt,13)
 
