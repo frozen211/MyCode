@@ -15,6 +15,7 @@ https://zhuanlan.zhihu.com/p/41047378
 
 # searchMatrix.py contains a basic way to search through a matrix.
 
+# MatrixProcess.py contains some lines to create, copy, and transpose a matrix.
 ------------------------------------------------------------------
 
 Useful tips:
