@@ -2,6 +2,9 @@ Useful files:
 
 # sortColors.py contains an implementation of Insertion Sort.
 
+# generatePermutations.py contains a recursive implementation of generating all permutations of a string.
+permute.py does the same thing.
+
 # Trie.py contains an implementation of the prefix tree. It should be useful.
 
 # Rabin_Karp.py contains the implementation of Rabin Karp string search algorithm. It is good at searching a specific pattern in the string.
@@ -21,3 +24,7 @@ https://zhuanlan.zhihu.com/p/41047378
 Useful tips:
 
 # every time see "kth ...", think about heap. A single heapify only takes O(logn), and a heap built by running heapify on the first (len(A)//2) elements of the list A only takes O(n) time.
+
+# Recursion implicitly uses a stack, so if the recursion level is too deep, it can overflow. In python, the limit is 1000.
+
+# Recursion can never be O(1) space complexity.
