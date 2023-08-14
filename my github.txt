@@ -17,4 +17,4 @@ use this link to generate new token to act as the password.
 
 8. use "git log" to take a look at the commit history. You can use "--oneline" to generate simple report.
 
-9. use "git reset HEAD~1" to concal last local commit.
+9. use "git reset HEAD~1" to cancal last local commit.
