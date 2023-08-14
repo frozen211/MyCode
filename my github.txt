@@ -14,3 +14,7 @@ use this link to generate new token to act as the password.
 6. use "git status" to check if there's anything needed to push.
 
 7. use "git branch xxx" to create new branch and use "git checkout xxx" to switch between branches.
+
+8. use "git log" to take a look at the commit history. You can use "--oneline" to generate simple report.
+
+9. use "git reset HEAD~1" to concal last local commit.
